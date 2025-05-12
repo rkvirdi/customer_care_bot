@@ -1,0 +1,8 @@
+langchain-community
+pypdf
+langchain
+langchain-huggingface
+langchain-pinecone
+python-dotenv
+langchain-groq
+streamlit
