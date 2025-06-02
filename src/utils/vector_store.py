@@ -18,7 +18,7 @@ def embed_chunks(chunks,embedder):
             spec=ServerlessSpec(cloud="aws", region="us-east-1")
     )
 
-# Create vectorstore
+#Create vectorstore
     for i in range(0, len(chunks), 100):  # upload 100 at a time
         vectorstore= PineconeVectorStore.from_documents(
             chunks[i:i+100],

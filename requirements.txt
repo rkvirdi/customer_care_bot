@@ -6,3 +6,8 @@ langchain-pinecone
 python-dotenv
 langchain-groq
 streamlit
+langchain-graph-retriever
+rank_bm25
+cryptography>=3.1
+nltk
+rouge-score

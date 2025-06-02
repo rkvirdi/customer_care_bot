@@ -1,0 +1,39 @@
+[
+
+   
+    {
+      "query": "where is the Low Voltage Power Outlet located in model X",
+      "ground_truth_document":"Your Model X has a power outlet located in the center console's compartment. To access the low voltage outlet, open the front compartment of the center console.",
+      "answer": "center console's compartment"
+    },
+     
+    {
+      "query": "how to use Exterior Door Handles model s",
+      "ground_truth_document":"A light press on a door handle extends it,provided Model S detects a valid key nearby.You can set the door handles to extendautomatically whenever you approach thedriver’s side carrying the key. On thetouchscreen, touch Controls > Settings >Vehicle > Auto-Present Handles > On.",
+      "answer": "A light press on a door handle extends it"
+    },
+     
+    {
+      "query": "How to turn on Voice Commands?",
+      "ground_truth_document":"You can use voice commands to call a contact,navigate to a location, or listen to Internet music. Tap the voice button on the upper right side of the steering wheel to initiate a voice command. When you hear the tone, speak your command. As you speak, the instrument panel displays an interpretation of your command (it also displays tips to remind you of the type of commands you can speak).When you finish speaking the command, tap the voice button again or simply wait.",
+      "answer": "Tap the voice button on the upper right side of the steering wheel to initiate a voice command."
+    },
+     
+    {
+      "query": "how to apply Parking Brake",
+      "ground_truth_document":"To engage the parking brake, touch Controls > Safety, press the brake pedal and then touch Park Brake.The parking brake is released when the vehicle is shifted into another gear.You can also engage the parking brake by touching and holding the Park button on the touchscreen's drive mode strip.",
+      "answer": "To engage the parking brake, touch Controls > Safety, press the brake pedal and then touch Park Brake."
+    },
+     
+    {
+      "query": "maximum speed for supervised self driving in model x is?",
+      "ground_truth_document":"As long as Full Self-Driving (Supervised) is enabled and available, you can activate it at any speed less than 85 mph (140 km/h) (including when Model X is at a standstill) by pressing the right scroll button.",
+      "answer": "less than 85 mph (140 km/h)"
+    },
+     
+    {
+      "query": "how the alarm system is deactivated?",
+      "ground_truth_document":"If Model S does not detect a key nearby and a locked door or trunk is opened, an alarm sounds and headlights and turn signals flash. To deactivate the alarm, press any button on the key.",
+      "answer": "To deactivate the alarm, press any button on the key."
+    }
+]
