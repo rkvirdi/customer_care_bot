@@ -14,7 +14,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./frontend/my-react-app
       dockerfile: Dockerfile
     ports:
       - "3000:80"
