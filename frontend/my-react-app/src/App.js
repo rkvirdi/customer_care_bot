@@ -15,6 +15,7 @@ function App() {
     setContext([]);
     setError("");
     try {
+      axios.defaults.baseURL = "http://localhost:8000";
       const res = await axios.post("/ask", { question });
       setAnswer(res.data.answer || "No answer found.");
       setContext(res.data.context || []);
