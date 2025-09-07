@@ -6,11 +6,11 @@ import psycopg2.extras
 
 import numpy as np
 from langchain.schema import Document
-from langchain.retrievers import BM25Retriever
+from langchain_community.retrievers import BM25Retriever
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel
-from src.utils.vector_store import PG_CONN_INFO
+from utils.vector_store import PG_CONN_INFO
 
 def pgvector_semantic_search(query, embedder, top_k=5):
     """
@@ -79,7 +79,7 @@ Answer:
     prompt_template = ChatPromptTemplate.from_template(prompt)
 
     llm = ChatGroq(
-        model_name="llama3-70b-8192",
+        model_name="llama-3.1-8b-instant",
         streaming=True,
         api_key=os.getenv("GROQ_API_KEY"),
     )
