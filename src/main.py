@@ -1,10 +1,10 @@
 from pathlib import Path
-from .utils.data_loading      import load_data
-from .utils.chunking          import chunk_text
-from .utils.embedding         import embedding_model
-from .utils.vector_store      import embed_chunks
-from .utils.retrieval_augment import retrieve_similar
-from .utils.generation        import generate_answer
+from utils.data_loading      import load_data
+from utils.chunking          import chunk_text
+from utils.embedding         import embedding_model
+from utils.vector_store      import embed_chunks
+from utils.retrieval_augment import retrieve_similar
+from utils.generation        import generate_answer
 
 # 1) Define a reusable pipeline function
 def run_pipeline(file_paths: list[str], user_query: str):

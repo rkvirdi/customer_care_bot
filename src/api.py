@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from pathlib import Path
-from .main import run_pipeline
+from main import run_pipeline
 from fastapi.middleware.cors import CORSMiddleware
 
 
