@@ -1,0 +1,17 @@
+EVALUATION: 
+3 LEVELS:
+
+LEVEL 1: Core (Precision@k, Recall@k, EM, F1, ROUGE)
+
+LEVEL 2: RAGAS (Faithfulness, Context Precision, Relevance)
+
+LEVEL 3: LLM-as-Judge (Advanced: A small LLM judges answer quality)
+
+
+
+
+retrieved docs= 10
+
+p@k= no. of relevant docs k / k
+
+r@k = 
