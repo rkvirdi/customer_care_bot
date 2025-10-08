@@ -15,3 +15,5 @@ sqlalchemy
 fastapi
 uvicorn
 psycopg2
+matplotlib
+sentence-transformers

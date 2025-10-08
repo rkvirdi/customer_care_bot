@@ -1,0 +1,13 @@
+#This is a YAML configuration file used to control evaluation settings without editing code.
+#You can change top-k, dataset path, or toggle visualization easily.
+
+dataset_path: "ground_truth.json"     # Path to your evaluation dataset
+retriever_top_k: 3                    # Top-k docs to consider per query
+metrics:
+  - precision_at_k                    # Retrieval accuracy
+  - recall_at_k
+  - mrr_at_k
+  - exact_match                       # Generation metrics
+  - token_f1
+visualize: true                       # Whether to plot charts
+output_dir: "evaluation/results"      # Folder to store outputs
