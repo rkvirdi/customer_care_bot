@@ -2,7 +2,7 @@
 # src/evaluation/evaluate_rag.py
 # ============================================
 
-import sys, os
+import sys, os, json
 import pandas as pd
 from tqdm import tqdm
 
@@ -45,18 +45,50 @@ results = []
 # ------------------------------------------------------------
 for row in tqdm(data, desc="Evaluating RAG pipeline"):
     q = row["query"]
-    gold_answer = row["answer"]
+    # Use "answer" field from ground truth as shown in the JSON structure
+    gold_answer = row.get("answer", "")
+    reference = row.get("reference", "")
 
-    # ✅ Call your real pipeline
+    # ✅ Call your real pipeline with error handling
     try:
         model_answer, context_chunks = run_pipeline(FILE_PATHS, q)
+        
+        # Validate context chunks
+        if not context_chunks:
+            print(f"⚠️ Warning: No context chunks returned for query: '{q}'")
+        
+        # Validate model answer
+        if not model_answer or model_answer.strip() == "":
+            print(f"⚠️ Warning: Empty answer generated for query: '{q}'")
+            
+        # Log context sources for debugging
+        sources = [chunk.metadata.get('source', 'unknown') for chunk in context_chunks]
+        print(f"Context sources for '{q}': {sources}")
+        
     except Exception as e:
         print(f"⚠️ Error during pipeline for '{q}': {e}")
         model_answer, context_chunks = "", []
 
     
-    retrieved_ids = [f"chunk_{i}" for i in range(len(context_chunks))]
-    relevant_docs = {retrieved_ids[0]: 1} if retrieved_ids else {}
+    # Create retrieved document IDs and check relevance based on reference
+    retrieved_ids = []
+    relevant_docs = {}
+    
+    for i, chunk in enumerate(context_chunks):
+        chunk_id = f"chunk_{i}"
+        retrieved_ids.append(chunk_id)
+        
+        # Check if chunk contains reference content or matches source
+        is_relevant = False
+        if reference:
+            if reference.lower() in chunk.page_content.lower():  # Direct reference match
+                is_relevant = True
+            elif any(ref_part in chunk.metadata.get('source', '').lower() 
+                    for ref_part in reference.lower().split()):  # Source match
+                is_relevant = True
+        
+        if is_relevant:
+            relevant_docs[chunk_id] = 1
 
     # --------------------------------------------------------
     # 4️⃣ Compute metrics
@@ -75,13 +107,50 @@ for row in tqdm(data, desc="Evaluating RAG pipeline"):
 # 5️⃣ Save results + plot
 # ------------------------------------------------------------
 df = pd.DataFrame(results)
-os.makedirs("src/evaluation/results", exist_ok=True)
-df.to_csv("src/evaluation/results/eval_report.csv", index=False)
-print(df)
-print("\nAVERAGE SCORES:\n", df.mean(numeric_only=True))
 
+# Create results directory
+results_dir = Path("src/evaluation/results")
+results_dir.mkdir(parents=True, exist_ok=True)
+
+# Save detailed evaluation results
+df.to_csv(results_dir / "eval_report.csv", index=False)
+
+# Save per-query detailed results with examples
+detailed_results = []
+for i, row in enumerate(results):
+    q = row["Question"]
+    detailed_results.append({
+        "query": q,
+        "gold_answer": data[i]["answer"],
+        "model_answer": results[i].get("model_answer", ""),
+        "reference": data[i]["reference"],
+        "metrics": {
+            k: v for k, v in row.items() 
+            if k not in ["Question", "model_answer"]
+        }
+    })
+
+with open(results_dir / "detailed_results.json", "w") as f:
+    json.dump(detailed_results, f, indent=2)
+
+# Print summary statistics
+print("\nEvaluation Results:")
+print("=" * 50)
+print(df)
+print("\nAverage Scores:")
+print("-" * 50)
+means = df.mean(numeric_only=True)
+for metric, value in means.items():
+    print(f"{metric:10s}: {value:.3f}")
+
+# Create visualizations
 plot_scores(df)
-print("\n✅ Evaluation completed! Results saved to src/evaluation/results/\n")
+
+print(f"\n✅ Evaluation completed! Results saved to {results_dir}/")
+print("Files generated:")
+print("  - eval_report.csv: Summary metrics")
+print("  - detailed_results.json: Per-query detailed analysis")
+print("  - metrics_chart.png: Visualization of results")
 
 
 # import sys, os

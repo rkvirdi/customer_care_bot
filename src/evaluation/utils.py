@@ -1,15 +1,30 @@
-import json, re
+import json, re, string
 
-# Load test dataset (ground_truth.json)
-def load_ground_truth(path="ground_truth.json"):
-    with open(path, "r") as f:
-        return json.load(f)
 
-# Normalize text by:
-# - Lowercasing
-# - Removing punctuation
-# - Splitting into words
+def load_ground_truth(path: str):
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    rows = data.get("ground_truth", data)
+    out = []
+    for r in rows:
+        out.append({
+            "query_id": r.get("query_id"),
+            "query": r.get("query") or r.get("question"),
+            "answer": r.get("answer") or "",   # <-- string
+            "reference": r.get("reference"),
+        })
+    return out
+
 def normalize_text(s):
+    # accept list[str] or str
+    if isinstance(s, list):
+        s = " ".join(s)
+    if s is None:
+        s = ""
+    # lowercase
     s = s.lower()
-    s = re.sub(r"[^a-z0-9\\s]", " ", s)
-    return s.split()
+    # remove punctuation
+    s = s.translate(str.maketrans("", "", string.punctuation))
+    # collapse whitespace
+    s = re.sub(r"\s+", " ", s).strip()
+    return s

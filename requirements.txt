@@ -17,3 +17,8 @@ uvicorn
 psycopg2
 matplotlib
 sentence-transformers
+ragas
+datasets 
+transformers 
+accelerate
+huggingface_hub[hf_xet]

@@ -1,39 +1,100 @@
-[
-
-   
+{
+  "ground_truth": [
     {
-      "query": "where is the Low Voltage Power Outlet located in model X",
-      "ground_truth_document":"Your Model X has a power outlet located in the center console's compartment. To access the low voltage outlet, open the front compartment of the center console.",
-      "answer": "center console's compartment"
+      "query_id": "q1",
+      "query": "What driver assistance features does Model S include?",
+      "answer": "Model S includes Lane Assist, Collision Avoidance Assist, and Speed Assist as safety features. With the Autopilot Tech Package, it also includes Traffic-Aware Cruise Control, Autosteer, Auto Lane Change, Autopark, and Auto High Beam.",
+      "reference": "Model S Owner's Manual - Driver Assistance Features, page 63"
     },
-     
     {
-      "query": "how to use Exterior Door Handles model s",
-      "ground_truth_document":"A light press on a door handle extends it,provided Model S detects a valid key nearby.You can set the door handles to extendautomatically whenever you approach thedriver’s side carrying the key. On thetouchscreen, touch Controls > Settings >Vehicle > Auto-Present Handles > On.",
-      "answer": "A light press on a door handle extends it"
+      "query_id": "q2",
+      "query": "How do I use Traffic-Aware Cruise Control on Model X?",
+      "answer": "Traffic-Aware Cruise Control maintains a set driving speed and distance from the vehicle in front. It automatically slows down or accelerates Model X as needed, while the driver remains responsible for steering.",
+      "reference": "Model X Owner's Manual - Autopilot section, page 120"
     },
-     
     {
-      "query": "How to turn on Voice Commands?",
-      "ground_truth_document":"You can use voice commands to call a contact,navigate to a location, or listen to Internet music. Tap the voice button on the upper right side of the steering wheel to initiate a voice command. When you hear the tone, speak your command. As you speak, the instrument panel displays an interpretation of your command (it also displays tips to remind you of the type of commands you can speak).When you finish speaking the command, tap the voice button again or simply wait.",
-      "answer": "Tap the voice button on the upper right side of the steering wheel to initiate a voice command."
+      "query_id": "q3",
+      "query": "What does a blinking green charge port light on Model X mean?",
+      "answer": "A blinking green charge port light indicates that charging is in progress. The blinking slows as the battery nears full charge, and becomes solid green when charging is complete.",
+      "reference": "Model X Owner's Manual - Charging Status, page 190"
     },
-     
     {
-      "query": "how to apply Parking Brake",
-      "ground_truth_document":"To engage the parking brake, touch Controls > Safety, press the brake pedal and then touch Park Brake.The parking brake is released when the vehicle is shifted into another gear.You can also engage the parking brake by touching and holding the Park button on the touchscreen's drive mode strip.",
-      "answer": "To engage the parking brake, touch Controls > Safety, press the brake pedal and then touch Park Brake."
+      "query_id": "q4",
+      "query": "How can I stop charging on Model X?",
+      "answer": "You can stop charging by disconnecting the charge cable or by selecting 'Stop Charging' on the touchscreen.",
+      "reference": "Model X Owner's Manual - Charging Instructions, page 190"
     },
-     
     {
-      "query": "maximum speed for supervised self driving in model x is?",
-      "ground_truth_document":"As long as Full Self-Driving (Supervised) is enabled and available, you can activate it at any speed less than 85 mph (140 km/h) (including when Model X is at a standstill) by pressing the right scroll button.",
-      "answer": "less than 85 mph (140 km/h)"
+      "query_id": "q5",
+      "query": "Where are airbags located in Model X?",
+      "answer": "Model X airbags include knee airbags, front airbags, curtain airbags, seat-mounted side airbags, and door-mounted airbags.",
+      "reference": "Model X Owner's Manual - Airbags section, page 60"
     },
-     
     {
-      "query": "how the alarm system is deactivated?",
-      "ground_truth_document":"If Model S does not detect a key nearby and a locked door or trunk is opened, an alarm sounds and headlights and turn signals flash. To deactivate the alarm, press any button on the key.",
-      "answer": "To deactivate the alarm, press any button on the key."
+      "query_id": "q6",
+      "query": "How should child safety seats be installed in Model X?",
+      "answer": "Children should ride in rear-facing child safety seats with integrated 5-point harnesses for as long as possible. Never install two seats on one anchor point or use extenders with child seats.",
+      "reference": "Model X Owner's Manual - Child Safety Seats, page 58"
+    },
+    {
+      "query_id": "q7",
+      "query": "What does Cabin Overheat Protection do in Model S?",
+      "answer": "Cabin Overheat Protection automatically activates air conditioning when cabin temperature exceeds 40°C for up to twelve hours after exit, to reduce interior heat buildup.",
+      "reference": "Model S Owner's Manual - Climate Controls, page 100"
+    },
+    {
+      "query_id": "q8",
+      "query": "How can I conserve energy while using the climate control in Model S?",
+      "answer": "Enable Range Mode to limit climate system power. Cabin heating or cooling becomes less effective, but seat heaters can provide warmth efficiently.",
+      "reference": "Model S Owner's Manual - Climate Control Operating Tips, page 100"
+    },
+    {
+      "query_id": "q9",
+      "query": "How often should the cabin air filter be replaced in Model S?",
+      "answer": "Tesla recommends replacing the cabin air filter every 12 months or every 20,000 km.",
+      "reference": "Model S Owner's Manual - Cabin Air Filter, page 100"
+    },
+    {
+      "query_id": "q10",
+      "query": "What are the tire maintenance recommendations for Model S?",
+      "answer": "Maintain correct tire pressures, inspect tires regularly for wear or damage, rotate tires periodically, and reset TPMS sensors after servicing.",
+      "reference": "Model S Owner's Manual - Tire Care and Maintenance, page 129"
+    },
+    {
+      "query_id": "q11",
+      "query": "What steps should be taken before adjusting Smart Air Suspension on Model S?",
+      "answer": "Ensure Model S is clear of all obstacles above and below before adjusting suspension height.",
+      "reference": "Model S Owner's Manual - Smart Air Suspension, page 100"
+    },
+    {
+      "query_id": "q12",
+      "query": "What is the recommended action when Autosteer becomes unavailable on Model X?",
+      "answer": "Autosteer may become unavailable if headlights are set to Off, or if the system detects conditions outside its operating range. The driver must take full control immediately.",
+      "reference": "Model X Owner's Manual - Autopilot section, page 118"
+    },
+    {
+      "query_id": "q13",
+      "query": "What should you do if a charge port light turns red during charging on Model X?",
+      "answer": "A red charge port light indicates a charging fault. Check the instrument panel or touchscreen for an alert describing the fault.",
+      "reference": "Model X Owner's Manual - Charging section, page 190"
+    },
+    {
+      "query_id": "q14",
+      "query": "When does the Cabin Overheat Protection stop working on Model S?",
+      "answer": "Cabin Overheat Protection stops working when the battery’s charge level drops below 20%.",
+      "reference": "Model S Owner's Manual - Climate Controls, page 100"
+    },
+    {
+      "query_id": "q15",
+      "query": "What causes Driver Assistance features to malfunction in Model S?",
+      "answer": "Poor visibility, bright light, obstructions like mud or snow, or interference from other ultrasonic equipment can impair Driver Assistance performance.",
+      "reference": "Model S Owner's Manual - Driver Assistance Limitations, page 63"
+    },
+    {
+      "query_id": "q16",
+      "query": "What should owners do to maintain Driver Assistance components in Model S?",
+      "answer": "Keep sensors and cameras clean with a soft damp cloth, avoid chemical or abrasive cleaners, and do not use high-pressure washing.",
+      "reference": "Model S Owner's Manual - Cleaning Driver Assistance Components, page 63"
     }
-]
+  ]
+}
